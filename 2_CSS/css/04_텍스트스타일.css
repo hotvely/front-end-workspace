@@ -1,0 +1,200 @@
+/* font-family */
+#ff1 {
+    font-family: 궁서체;
+}
+#ff2 {
+    font-family: 고딕체;
+}
+#ff3 {
+    font-family:Arial, Helvetica, sans-serif;
+}
+#ff4 {
+    font-family: 'Mynerve', cursive;
+}
+
+#ff5
+{
+    font-family: 'Pangolin', cursive;
+   
+
+}
+#ff6{
+    font-family: 'VT323', monospace;
+}
+
+/* font-size */
+
+
+/* font-weight */
+#fw1{
+    font-weight : bold;
+}
+#fw2{
+    font-weight: bolder /*900*/;
+}
+#fw3{
+    font-weight: lighter /*100*/;
+}
+
+
+/* font-style */
+#fs5{
+    font-style: italic;
+}
+#fs6{
+    font-style: oblique;
+}
+
+/* font-variant */
+#fv{
+    font-variant: small-caps;
+}
+
+/* font */
+#font1{
+    font: 1.5rem ;
+}
+
+/* 이태릭, 각자의 글씨체, 크기는 32px, small-caps 적용, 굵기 bold, line-height = 2 */
+#font2{
+    font : italic small-caps bold 32px 
+    / 2em 'VT323';
+}
+
+/* color */
+#c-name{
+    color: navy;
+}
+#c-16{
+    color: #aa1b5e;
+}
+#c-rgb{
+    color: rgb(68, 223, 78);
+    color: rgba(68, 223, 78, 0.4);
+}
+#c-hsl{
+    color: hsl(200, 33%, 31%);
+    color: hsla(200, 50%, 50%, 0.3);
+}
+
+/* text-decoration */
+#td1{
+    text-decoration: underline;
+}
+#td2{
+    text-decoration: line-through;
+}
+#td3{
+    text-decoration: overline;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+#td4{
+    color: pink;
+}
+
+/* text-transform */
+#tt1{
+    text-transform: uppercase;
+}
+#tt2{
+    text-transform:lowercase;
+}
+#tt3{
+    text-transform: capitalize;
+}
+
+
+/* text-shadow */
+.shadow{
+    font-size: 50px;
+    font-family: 'VT323';
+    font-style: normal;
+    font-weight: bold;
+}
+#ts1{
+    color: orangered;
+    text-shadow: -5px -5px 5px yellow;
+}
+#ts2{
+    color: white;
+    text-shadow: 0px 0px 10px yellowgreen;
+}
+#ts3{
+    text-shadow: 0px 0px 4px gray,
+                 0px -5px 4px yellow,
+                 0px -10px 8px orange,
+                 0px -15px 15px orangered,
+                 0px -22px 20px red;
+}
+
+
+/* white space */
+#whs{
+    border : 1px solid;
+    width: 200px;
+    white-space: normal;
+    white-space: nowrap;
+    white-space: pre-line;
+    white-space:pre-wrap ;
+}
+
+/* letter space */
+#ls{
+    /* letter-spacing: 10px; */
+    letter-spacing: 0.5rem;
+}
+/* 1rem = 16px */
+
+/* word space */
+#ws{
+    word-spacing: 32px;
+    /* word-spacing: 2rem; */
+}
+
+
+
+/* text-align */
+#ta1{
+    text-align: left;
+}
+#ta2{
+    text-align: right;
+}
+#ta3{
+    text-align: center;
+}
+#ta4{
+    text-align: justify;
+}
+
+
+/* text-indent */
+#ti{
+    text-indent: 100px;
+}
+
+/* line-height */
+#lh{
+    line-height: 55px;
+    line-height: 1.3;
+}
+
+/* text-overflow */
+#textbox p{
+    border : 1px solid;
+    white-space: nowrap;
+    width: 80%;
+    overflow: hidden;
+}
+
+#textbox .clipText
+{
+    text-overflow: clip;
+}
+
+#textbox .ellipsisText{
+    text-overflow: ellipsis;
+}

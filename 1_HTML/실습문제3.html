@@ -8,7 +8,7 @@
 <body>
     <h1>주문하기</h1>
 
-    <form>
+    <form method="post">
         <label for="userName">고객명:</label>
         <input type="text" name="userName" id="userName" required placeholder="이름">
         <br><br>
@@ -37,16 +37,16 @@
 
         <fieldset style="width: 15%; height: 30%;">
             <legend>토핑 선택</legend>
-            <input type="checkbox" name="topping" id="topping1">
+            <input type="checkbox" name="topping" id="topping1" value="bacon">
             <label for="topping">베이컨</label><br><br>
             
-            <input type="checkbox" name="topping" id="topping2">
+            <input type="checkbox" name="topping" id="topping2" value="cheese">
             <label for="topping">치즈</label><br><br>
             
-            <input type="checkbox" name="topping" id="topping3">
+            <input type="checkbox" name="topping" id="topping3" value="onion">
             <label for="topping">양파</label><br><br>
             
-            <input type="checkbox" name="topping" id="topping4">
+            <input type="checkbox" name="topping" id="topping4" value="mushroom">
             <label for="topping">버섯</label><br><br>
         </fieldset>
         <br><br>
@@ -56,7 +56,7 @@
         <br><br>
         
         <label for="textarea">배송 시 요청 사항</label><br>
-        <textarea name="textarea" id="textarea" cols="30" rows="10" style="width: 300px; height: 200px; resize: none;" ></textarea>
+        <textarea name="textarea" id="textarea" cols="30" rows="10" style="width: 300px; height: 200px; resize: none;" placeholder="내용을 입력하슈"></textarea>
         <br><br>
 
         <button>주문하기</button>
