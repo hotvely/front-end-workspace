@@ -1,0 +1,153 @@
+.box-container{
+    border: 1px solid black;
+    height: 50vh;
+}
+
+#box-container1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#box-container2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 기본 박스 설정으로..가로세로, 백그라운드색상, 테두리 */
+.box{
+    width: 150px;
+    height: 150px;
+    background-color: rgba(62, 185, 74, 0.541);
+    border: 1px solid black;
+    margin: 5px;
+    
+    /* transition */
+    transition: 1s;
+    transition: 0.5s linear;
+    transition: 1s cubic-bezier(0.01,-0.48, 1, 1.31);
+}
+
+.box:hover
+{
+    transform: scale(2);
+    transform: rotate(45deg);
+    transform: skew(30deg);
+    transform: skewY(30deg);
+    transform: translateX(100px);
+    transform: translate(50px, 100px);
+    /* transform: scale(1.5) rotate(30deg); */
+    transform-origin: left top;
+    transform-origin: right bottom;
+    background-color: rgba(196, 240, 200, 0.541);
+}
+
+
+/* animation */
+#box-container2{
+    width: 1200px;
+    height: 600px;
+
+}
+
+.animation-box{
+    width: 200px;
+    height: 200px;
+    background-image: linear-gradient(indigo 50% , red 50%);
+    /* background-color: indigo ; */
+    color:white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0;
+    animation: boxAni 3s linear infinite;
+    border-radius: 50%;
+    /* animation: boxAni 3s linear infinite reverse;      반대로 움직임;ㅋㅋ */
+    /* animation: boxAni 3s linear infinite alternate-reverse; */
+    /* animation: boxAni 3s linear forwards; */
+}
+
+.animation-circle{
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0;
+    border-radius: 50%;
+}
+
+.animation-box:hover{
+    animation-play-state: paused;
+}
+
+@keyframes boxAni{
+    0%{
+        transform: translate(0, 0);
+    }
+    50%{
+        /* transform: translate(1000px, 0); */
+        transform: rotate(180deg);
+    }
+    100%{
+        /* transform: translate(1000px, 400px); */
+        transform: rotate(360deg);
+    }
+}
+
+#box-container3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* perspective: 350px; */
+}
+
+#box-container3:hover .album{
+    transform: rotateY(-181deg);
+}
+
+.album{
+    width: 200px;
+    height: 200px;
+    /* background-image: url(../../resources/album2.jpg);
+    background-size: cover;
+    background-position: center; */
+    /* transform: perspective(400px) rotateY(-1deg); */
+    /* transform: rotateY(-1deg); */
+
+    transition: 3s;
+    transform-style: preserve-3d;
+    /* backface-visibility: hidden; */
+    position: relative;
+    transform-origin: left;
+}
+
+.album-item{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+}
+
+.album-item-front{
+    background-image: url(../../resources/album2.jpg);
+    background-size: cover;
+    background-position: center;
+    
+    backface-visibility: hidden;
+    z-index: 1;
+}
+
+.album-item-back{
+    background-color: gold;
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+}
