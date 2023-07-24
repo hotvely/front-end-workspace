@@ -1,15 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>이벤트</title>
+
+    <link rel="stylesheet" href="css/03_이벤트.css">
+    <!--defer : DOMContentLoaded 끝나기 직전 시점에 작동;-->
+    <script defer src="js/03_이벤트.js"></script>
+
 </head>
 <body>
 
     <h1>이벤트</h1>
+    <div class="testa">
+        <img src="../../resources/giraffe.jpg" alt="">
+    </div>
+    <div class="container">
+        <img src="../../resources/grid2.jpg" alt="">
+        <img src="../../resources/grid3.jpg" alt="">
+        <img src="../../resources/grid4.jpg" alt="">
+        <img src="../../resources/grid5.jpg" alt="">
+        <img src="../../resources/grid6.jpg" alt="">
+    </div>
 
-
+    
     <nav>
         <a href="#" class="menu">menu 1</a>
         <a href="#" class="menu">menu 2</a>
@@ -17,7 +32,7 @@
     </nav>
 
 
-    <script>
+    <!-- <script>
     let current;
 
     const h1 = document.querySelector("h1");
@@ -44,7 +59,7 @@
         console.log(this);
     }
     h1.addEventListener('click', clickHandler);
-    </script>
+    </script> -->
     
 </body>
 </html>
