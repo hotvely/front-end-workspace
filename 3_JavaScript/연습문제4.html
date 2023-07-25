@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습문제4</title>
+    <style>
+        form
+        {
+            border: 1px solid #ccc;
+            padding: 5px;
+        }
+        form span {
+            display: block;
+            margin-left: 12px;
+            color: #999;
+            font-size: 12px;
+        }
+        form div{
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1><정규 표현식을 활용한 회원가입 폼></h1>
+    <form action="" onsubmit="return validate()">
+        <div>     
+            <label for="">* 아이디 : </label>
+            <input type="text" placeholder="..아이디" id="userId" name="userId" required>
+            
+            <span >
+                첫글자는 반드시 영문자로, 그리고 영문자, 숫자 포함하여 총 4~12자로 입력하시오
+            </span>        
+        </div>        
+        <div> 
+            <label for=""> * 비밀번호 : </label>
+            <input type="password" placeholder="..비밀번호" id="userPwd1" name="userPwd1" required> 
+            <span >
+                영문자, 숫자, 특수문자 포함하여 총 8~15자로 입력하시오.
+            </span> 
+        </div>
+        <div>
+            <label for="">* 비밀번호 확인 : </label> 
+            <input type="password" placeholder="..비밀번호 확인" id="userPwd2" name="userPwd2" required> 
+            <span >
+                위의 비밀번호와 일치하게 입력하시오.
+            </span> 
+        </div>
+        <div> 
+            <label for="">* 이름 : </label>
+            <input type="text" placeholder="..이름" id="userName" name="userName" required> 
+            <span >
+                한글로만 이루어져야하며 2글자 이상으로 입력하시오.    
+            </span> 
+        </div>
+        <div> 
+            <label for="">* 이메일 : </label>
+            <input type="text" placeholder="..이메일" id="email" name="email"> 
+            <span >
+                이메일 형식에 맞춰 입력하시오.
+            </span> 
+        </div>
+        <div>
+            <label for="">* 취미 : </label>
+            <input type="text" placeholder="축구, 야구, 농구, 독서 등" id="hobby" name="hobby">      
+        </div>
+        <div>             
+            <label for="address">* 거주지 : </label>
+            <select name="address" id="address">
+                <option value="서울" selected>서울</option>
+                <option value="인천">인천</option>
+                <option value="부산">부산</option>
+            </select>            
+        </div>
+        <input type="submit" class="signupBtn" value="회원가입">
+        <input type="reset" value="초기화">
+        <!-- <button class="signupBtn">회원가입 </button>
+        <button class="cancleBtn">취소</button> -->
+    </form>
+
+    <!------------------JavaScript---------------------->
+    <script>
+        const userId = document.querySelector('#userId');
+        const userPwd1 = document.querySelector('#userPwd1');
+        const userPwd2 = document.querySelector('#userPwd2');
+        const userName = document.querySelector('#userName');
+        const email = document.querySelector('#email');
+        const hobby = document.querySelector('#hobby');
+        const signupBtn = document.querySelector('.signupBtn')
+
+        function userIdCheck()
+        {
+            const regExp_id = /^[A-Z]{1}[0-9A-Za-z]{3,11}$/;
+            return regExp_id.test(userId.value);
+        }
+        
+        function userPwd1Check()
+        {
+            const regExp_pass = /^[!-~]{8,15}$/;
+            const regExp_checkPass = /[!-/:-@[-`{-~]/;
+            
+            return regExp_pass.test(userPwd1.value) && regExp_checkPass.test(userPwd1.value);
+        }
+
+        function userPwd2Check()
+        {
+            return userPwd1.value === userPwd2.value;
+        }
+
+        function userNameCheck()
+        {
+            const regExp_name = /^[가-힣]{2,}$/;
+            return regExp_name.test(userName.value);
+        }
+
+        function userEmailCheck()
+        {
+            // {1,} == '+'
+            const regExp_email = /[A-Za-z0-9\_\.]{1,}@[a-zA-Z]{1,}\.[a-zA-z]{1,}/;
+            const regExp_email2 = /^[\w\.]+\@[a-zA-Z]+\.[a-zA-Z]+$/;
+            return regExp_email.test(email.value);
+        }
+
+        function validate()
+        {
+            if(!userIdCheck())
+            {
+                userId.focus();
+                return false;
+            }
+            else if(!userPwd1Check())
+            {
+                userPwd1.focus();
+                return false;
+            }
+            else if(!userNameCheck()) 
+            {
+                userName.focus();
+                return false;
+            }       
+            else if(!userEmailCheck())
+            {
+                email.focus();
+                return false;
+            }   
+            else
+            return true; 
+        }
+        
+        userId.addEventListener('input', function(event){inputHandler(event,userIdCheck(), '첫글자는 반드시 영문자로, 그리고 영문자, 숫자 포함하여 총 4~12자로 입력하시오')});
+
+        userPwd1.addEventListener('input', function(event){inputHandler(event,userPwd1Check(), '영문자, 숫자, 특수문자 포함하여 총 8~15자로 입력하시오.')});
+
+        userPwd2.addEventListener('input', function(event){inputHandler(event, userPwd2Check(), '위의 비밀번호와 일치하게 입력하시오.')});
+
+        userName.addEventListener('input', function(event){inputHandler(event,userNameCheck(), '한글로만 이루어져야하며 2글자 이상으로 입력하시오.')});
+
+        email.addEventListener('input', function(event){inputHandler(event,userEmailCheck(), '이메일 형식에 맞춰 입력하시오.')});
+
+
+        function inputHandler(event, check, msg)
+        {
+            if(!check){
+                event.target.nextElementSibling.style.color = 'red';
+                event.target.nextElementSibling.innerHTML = msg;
+            }
+            else{
+                event.target.nextElementSibling.style.color = 'green';
+                event.target.nextElementSibling.innerHTML = 'OK !';
+            }
+        }
+
+
+
+        // 아래 함수 내부에 박은 뭉터기 코드들 위쪽에 기능별로 분리함;
+        function signup()
+        {
+            console.log("회원가입버튼 누름;");
+            const regExp_id = /^[A-Z]{1}[0-9A-Za-z]{3,11}$/;
+            const regExp_pass = /[!-~]{8,15}/i;
+            const regExp_checkPass = /[!-/:-@[-`{-~]/;
+            const regExp_name = /^\W{2,}$/;
+            const regExp_email = /[A-Za-z0-9]@[a-zA-z].[a-zA-z]/;
+            
+        
+
+            if(regExp_id.test(userId.value) &&
+            (regExp_pass.test(userPwd1.value) && regExp_checkPass.test(userPwd1.value)) &&
+            regExp_name.test(userName.value)&&
+            regExp_email.test(email.value))
+            {
+                alert("succ");
+            }
+            else{
+                alert("failed");
+            }   
+        }
+
+        //signupBtn.addEventListener('click', signup);
+
+    </script>
+
+
+</body>
+</html>
