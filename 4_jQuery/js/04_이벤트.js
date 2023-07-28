@@ -86,3 +86,41 @@ $('#textarea2').keyup(function(e){
     }
        
 });
+
+
+$('#userId').keyup(function(e){
+    
+    const regExp = /^[a-z]{1}[a-z0-9]{4,12}$/;
+
+    const id = $(e.target).val();    
+    console.log("e.target.val() : " + $(e.target).val());
+    console.log("reg.test(id) : " + regExp.test(id));
+    // 첫문자 영문자 조건 걸어야함 
+    if(regExp.test(id))
+    {
+        $('#idCheck').text('사용 가능한 아이디 입니다.').css('color','green');           
+    }    
+    else if(id === "")
+    {
+        $('#idCheck').text('');
+    }
+    else
+    {
+        $('#idCheck').text('사용 불가능한 아이디 입니다.').css('color','red');
+    }    
+});
+
+// 3. trigger() function
+
+// let num = 0;
+$('#area3').on('click', function(e){
+
+    // $('#counter2').text(++num);
+
+    let currCount = parseInt($('#counter2').text());
+    $('#counter2').text(++currCount);
+});
+
+$('#btn').on('click', function(){
+    $('#area3').trigger('click');
+});
