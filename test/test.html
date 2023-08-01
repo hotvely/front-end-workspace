@@ -5,6 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>test</title>
     <style>
+      div.container {
+        display: flex;
+        justify-content: left;
+        width: 350px;
+        margin: 5px;
+      }
+      div.container2 {
+        display: flex;
+        width: 300px;
+        margin: 5px;
+        justify-content: center;
+      }
+
+      div.submit {
+        background-color: black;
+      }
+      div {
+        margin: 5px;
+      }
+
+      .contentArea {
+        width: 80%;
+      }
+      .submitArea {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+      }
+
+      label {
+        display: flex;
+        margin: 5px;
+        font-weight: bold;
+        font-size: 12px;
+        align-self: center;
+        /* justify-content: center; */
+        width: 20%;
+      }
+      /* .content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      } */
+      /* .contentArea {
+        display: flex;
+        width: 150px;
+        justify-content: center;
+        align-items: center;
+      } */
       table {
         border: 3px double black;
       }
@@ -20,47 +69,69 @@
         font-weight: bold;
         width: 150px;
         height: 100px;
+        align-items: middle;
+      }
+      form {
+        padding: 10px;
       }
     </style>
     <script src="./test.css"></script>
   </head>
   <body>
-    <form action="" style="border: 1px solid">
+    <fieldset style="margin: 15px">
       <legend>공지사항 작성하기</legend>
 
-      <label>제목 :</label>
+      <div class="container">
+        <label class="title">제목</label>
+        <div class="contentArea">
+          <input
+            class="contentArea"
+            type="text"
+            name="title"
+            id="title"
+            placeholder="제목을 입력하시오."
+          />
+        </div>
+      </div>
 
-      <input
-        type="text"
-        name="title"
-        id="title"
-        placeholder="제목을 입력하시오."
-      />
-      <br />
-      <label for="">
-        <label>내용 :</label>
-        <textarea
-          name="content"
-          id="content"
-          cols="30"
-          rows="10"
-          placeholder="내용을 입력하시오."
-        ></textarea>
-      </label>
-      <br />
-      <label for="">첨부파일 : </label>
-      <input type="file" name="uploadFile" id="" />
-      <br />
-      <input type="submit" value="작성하기" />
-    </form>
+      <div class="container">
+        <label class="content">내용</label>
+
+        <div class="contentArea">
+          <textarea
+            class="textarea"
+            name="content"
+            id="content"
+            cols="30"
+            rows="10"
+            placeholder="내용을 입력하시오."
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="container">
+        <label class="content">첨부파일</label>
+        <div class="contentArea">
+          <input class="fileupload" type="file" name="uploadFile" id="" />
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="submitArea">
+          <input type="submit" value="작성하기" />
+        </div>
+      </div>
+    </fieldset>
+
     <br /><br />
+
     <table>
       <tr>
         <th width="40px">번호</th>
         <th colspan="2" width="400px">제목</th>
         <th width="100px">작성자</th>
         <th width="100px">작성일</th>
-        <th>조회수</th>
+        <th width="60px">조회수</th>
       </tr>
       <tr>
         <td>9</td>
