@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>test2</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+    <style>
+      form {
+        margin: 15px;
+      }
+
+      .submitBtn input {
+        width: 250px;
+        height: 50px;
+        background-color: rgb(189, 219, 145);
+        border: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="">
+      <div>아이디 <input type="text" name="" id="userId" required /></div>
+      <br />
+      <div>
+        비밀번호 <input type="password" name="" id="userPwd" required />
+        <div id="passInfo" style="color: gray; font-size: 12px"></div>
+      </div>
+      <br />
+      <div>
+        비밀번호 확인 <input type="password" name="" id="userPwd2" required />
+        <div id="passCheckInfo" style="color: gray; font-size: 12px"></div>
+      </div>
+      <br />
+      <div>이메일 <input type="email" name="" id="userEmail" /></div>
+      <br />
+      <div>주소 <input type="text" name="" id="userAddr" /></div>
+      <br />
+      <div class="submitBtn">
+        <input type="submit" value="가 입" id="btn" />
+      </div>
+    </form>
+    <script src="./test2.js"></script>
+  </body>
+</html>
